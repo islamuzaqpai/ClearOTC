@@ -46,7 +46,7 @@ migrate-down:
 migration-action:
 	@MSYS_NO_PATHCONV=1 docker compose run --rm clearotc-postgres-migrate \
 		-path /migrations \
-		-database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@clearotc-postgres:5432/${POSTGRES_DB}?sslmode=disable \
+		-database "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@clearotc-postgres:5432/${POSTGRES_DB}?sslmode=disable&search_path=public" \
 		"$(action)"
 
 clearotc-run:
